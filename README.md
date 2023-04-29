@@ -1,9 +1,10 @@
 # clussh
 
-Great for managing servers, or as a startingpoint for clustered tool:
+Great for managing servers, or as a startingpoint for clustered rpc-tool:
 
-* define servers in the script (edit `cluster=`)
-* add shellfunctions like `hello` in the src
+* define [servers in the script](https://github.com/coderofsalvation/clussh/blob/main/clussh#L11)
+* [add shellfunctions](https://github.com/coderofsalvation/clussh/blob/main/clussh#L14)
+* profit!
 
 # Usage
 
@@ -26,4 +27,11 @@ $ clussh hello
 serverA       | hello from archlinux
 serverB       | hello from debian
 serverC       | hello from gentoo
+
+$ SERVER=serverC clussh hello
+serverC       | hello from gentoo
+$ LOADBALANCE=1 clussh 
+serverB       | hello from debian
+$ LOADBALANCE=1 clussh 
+serverA       | hello from debian
 ```
