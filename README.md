@@ -1,11 +1,3 @@
-# clussh
-
-Great for managing servers, or as a startingpoint for clustered rpc-tool:
-
-* define [servers in the script](https://github.com/coderofsalvation/clussh/blob/main/clussh#L11)
-* [add shellfunctions](https://github.com/coderofsalvation/clussh/blob/main/clussh#L14)
-* profit!
-
 # Usage
 
 ```shellscript
@@ -35,3 +27,9 @@ serverB       | hello from debian
 $ LOADBALANCE=1 clussh 
 serverA       | hello from debian
 ```
+
+>Great for managing servers, or as a startingpoint for clustered rpc-tool:
+
+* define [servers in the script](https://github.com/coderofsalvation/clussh/blob/main/clussh#L11)
+* [add shellfunctions](https://github.com/coderofsalvation/clussh/blob/main/clussh#L14)
+* profit!
