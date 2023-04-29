@@ -3,10 +3,10 @@
 #
 # Usage: [SERVER=X] [LOADBALANCE=1] clussh <cmd>
 #
-# Example: clussh hello
-#          serverA       | hello from 2wa
-#          serverB       | hello from debian
-#          serverC       | hello from htg
+# Example: clussh hello world
+#          serverA       | hello from 2wa world
+#          serverB       | hello from debian world
+#          serverC       | hello from htg world
 #
 cluster="serverA serverB serverC"
 

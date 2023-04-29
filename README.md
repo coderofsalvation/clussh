@@ -16,17 +16,17 @@ $ grep hello clussh
   hello(){ echo hello from $(hostname) $*; }
 
 $ clussh hello
-serverA       | hello from archlinux
-serverB       | hello from debian
-serverC       | hello from gentoo
+serverA       | hello from archlinux world
+serverB       | hello from debian world
+serverC       | hello from gentoo world
 
 $ SERVER=serverC clussh hello
-serverC       | hello from gentoo
+serverC       | hello from gentoo world
 
-$ LOADBALANCE=1 clussh 
-serverB       | hello from debian
-$ LOADBALANCE=1 clussh 
-serverA       | hello from debian
+$ LOADBALANCE=1 clussh hello
+serverB       | hello from debian world
+$ LOADBALANCE=1 clussh hello
+serverA       | hello from debian world
 ```
 
 >Great for managing servers, or as a startingpoint for clustered rpc-tool:
