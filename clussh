@@ -8,7 +8,7 @@
 #          serverB       | hello from debian world
 #          serverC       | hello from htg world
 #
-cluster="serverA serverB serverC"
+cluster="localhost serverA serverB serverC"
 
 rpc(){
   hello(){ echo hello from $(hostname) $*; }

@@ -5,9 +5,10 @@ $ clussh
   Usage: [SERVER=X] [LOADBALANCE=1] clussh <cmd>
 
 $ grep cluster clussh
-cluster="serverA serverB serverC"
+cluster="localhost serverA serverB serverC"
 
 $ clussh date
+localhost       | Sat Apr 29 14:13:06 UTC 2023
 serverA         | Sat Apr 29 14:13:06 UTC 2023
 serverB         | Sat Apr 29 18:01:22 CEST 2023
 serverC         | Sat Apr 29 14:13:06 UTC 2023
@@ -16,6 +17,7 @@ $ grep hello clussh
   hello(){ echo hello from $(hostname) $*; }
 
 $ clussh hello world
+localhost     | hello from ubuntu world
 serverA       | hello from archlinux world
 serverB       | hello from debian world
 serverC       | hello from gentoo world
