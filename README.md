@@ -22,6 +22,7 @@ serverC       | hello from gentoo
 
 $ SERVER=serverC clussh hello
 serverC       | hello from gentoo
+
 $ LOADBALANCE=1 clussh 
 serverB       | hello from debian
 $ LOADBALANCE=1 clussh 
