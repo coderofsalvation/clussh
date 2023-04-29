@@ -15,17 +15,17 @@ serverC         | Sat Apr 29 14:13:06 UTC 2023
 $ grep hello clussh
   hello(){ echo hello from $(hostname) $*; }
 
-$ clussh hello
+$ clussh hello world
 serverA       | hello from archlinux world
 serverB       | hello from debian world
 serverC       | hello from gentoo world
 
-$ SERVER=serverC clussh hello
+$ SERVER=serverC clussh hello world
 serverC       | hello from gentoo world
 
-$ LOADBALANCE=1 clussh hello
+$ LOADBALANCE=1 clussh hello world
 serverB       | hello from debian world
-$ LOADBALANCE=1 clussh hello
+$ LOADBALANCE=1 clussh hello world
 serverA       | hello from debian world
 ```
 
