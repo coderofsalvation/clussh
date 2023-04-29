@@ -1,0 +1,25 @@
+#!/bin/bash
+# loadbalancing and parallelizing jobs over ssh cluster
+#
+# Usage: [SERVER=X] [LOADBALANCE=1] clussh <cmd>
+#
+# Example: clussh hello
+#          serverA       | hello from 2wa
+#          serverB       | hello from debian
+#          serverC       | hello from htg
+#
+cluster="serverA serverB serverC"
+
+rpc(){
+  hello(){ echo hello from $(hostname) $*; }
+  "$@"
+}
+
+test -z $SERVER      || cluster=$SERVER
+test -z $LOADBALANCE || cluster=$(echo $cluster | xargs -n1 | shuf -n1 )
+test -z "$1" && { echo -e "Usage: [SERVER=X] [LOADBALANCE=1] clussh <cmd>\n\n\tservers: $cluster\n"; exit 0; }
+
+for server in $cluster; do 
+  printf "\033[36m%-16s| \033[0m" $server
+  ssh $server "$(declare -f rpc); rpc $*"
+done
